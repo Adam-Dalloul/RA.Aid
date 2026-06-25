@@ -21,6 +21,7 @@ RA.Aid supports these model providers:
 | DeepSeek          | Chinese hedge fund who creates sophisticated LLMs       | Strong, open models like R1                                       |
 | Fireworks         | Serverless AI inference platform for open-source models | High-performance inference, pay-per-token, variety of open models |
 | MakeHub           | OpenAI-compatible AI router optimized for developers    | Customizable speed/price ratio, curated latest models, dev-optimized performance |
+| EmpirioLabs AI    | OpenAI-compatible API platform for multimodal models    | Unified API key, live model catalog, shared billing               |
 | OpenRouter        | Multi-model gateway service                             | Access to 100+ models, unified API interface, pay-per-token       |
 | OpenAI-compatible | Self-hosted model endpoints                             | Compatible with Llama, Mistral and other open models              |
 | Anthropic         | Claude model series                                     | 200k token context, strong tool use, JSON/XML parsing             |
@@ -39,6 +40,7 @@ RA.Aid supports these model providers:
 export DEEPSEEK_API_KEY=your_key
 export FIREWORKS_API_KEY=your_key
 export MAKEHUB_API_KEY=your_key
+export EMPIRIOLABS_API_KEY=your_key
 export OPENROUTER_API_KEY=your_key
 export OPENAI_API_KEY=your_key
 export ANTHROPIC_API_KEY=your_key
@@ -124,6 +126,26 @@ ra-aid -m "Your task" --provider makehub --model anthropic/claude-4-sonnet --tem
 - Configure `price_performance_ratio` for intelligent speed/cost optimization
 - Automatic routing to optimal endpoints - no manual base URL configuration needed
 - Expert mode support with `EXPERT_MAKEHUB_API_KEY` environment variable
+
+</TabItem>
+<TabItem value="empiriolabs" label="EmpirioLabs AI">
+
+### EmpirioLabs AI Integration
+
+EmpirioLabs AI exposes an OpenAI-compatible API for text, image, video, audio, search, and 3D models.
+
+```bash
+# Environment setup
+export EMPIRIOLABS_API_KEY=your_api_key_here
+export OPENAI_API_KEY=$EMPIRIOLABS_API_KEY
+export OPENAI_API_BASE=https://api.empiriolabs.ai/v1
+
+# Basic usage
+ra-aid -m "Your task" --provider openai-compatible --model qwen3-max
+```
+
+**Available Models:**
+- Use the current model IDs from the [EmpirioLabs model catalog](https://empiriolabs.ai/models).
 
 </TabItem>
 <TabItem value="openrouter" label="OpenRouter">
