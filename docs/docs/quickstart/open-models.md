@@ -40,7 +40,6 @@ RA.Aid supports these model providers:
 export DEEPSEEK_API_KEY=your_key
 export FIREWORKS_API_KEY=your_key
 export MAKEHUB_API_KEY=your_key
-export EMPIRIOLABS_API_KEY=your_key
 export OPENROUTER_API_KEY=your_key
 export OPENAI_API_KEY=your_key
 export ANTHROPIC_API_KEY=your_key
@@ -136,12 +135,13 @@ EmpirioLabs AI exposes an OpenAI-compatible API for text, image, video, audio, s
 
 ```bash
 # Environment setup
+# RA.Aid reads the OpenAI-compatible variables at runtime.
 export EMPIRIOLABS_API_KEY=your_api_key_here
 export OPENAI_API_KEY=$EMPIRIOLABS_API_KEY
 export OPENAI_API_BASE=https://api.empiriolabs.ai/v1
 
 # Basic usage
-ra-aid -m "Your task" --provider openai-compatible --model qwen3-max
+ra-aid -m "Your task" --provider openai-compatible --model <model-id>
 ```
 
 **Available Models:**
@@ -342,8 +342,8 @@ Complete list of supported environment variables:
 | `DEEPSEEK_API_KEY`             | DeepSeek          | Main API access                                   |
 | `FIREWORKS_API_KEY`            | Fireworks         | Main API access                                   |
 | `MAKEHUB_API_KEY`              | MakeHub           | Main API access                                   |
-| `OPENAI_API_KEY`               | OpenAI-compatible | API access                                        |
-| `OPENAI_API_BASE`              | OpenAI-compatible | Custom endpoint                                   |
+| `OPENAI_API_KEY`               | OpenAI-compatible | Runtime API key, including mapped EmpirioLabs keys |
+| `OPENAI_API_BASE`              | OpenAI-compatible | Custom endpoint, including EmpirioLabs API base   |
 | `ANTHROPIC_API_KEY`            | Anthropic         | API access                                        |
 | `GEMINI_API_KEY`               | Gemini            | API access                                        |
 | `AWS_PROFILE`                  | Bedrock           | API access                                        |
